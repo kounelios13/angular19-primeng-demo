@@ -75,7 +75,7 @@
                                     <a href="components/Step3Component.html" >Step3Component</a>
                                 </li>
                                 <li class="link">
-                                    <a href="components/StepperDemoComponent.html" >StepperDemoComponent</a>
+                                    <a href="components/StepperDemoComponent.html"  class="active" >StepperDemoComponent</a>
                                 </li>
                         </ul>
                     </li>
@@ -166,7 +166,7 @@
                                            <a href="components/Step3Component.html" >Step3Component</a>
                                        </li>
                                        <li class="link">
-                                           <a href="components/StepperDemoComponent.html" >StepperDemoComponent</a>
+                                           <a href="components/StepperDemoComponent.html"  class="active" >StepperDemoComponent</a>
                                        </li>
                                </ul>
                            </li>
@@ -196,14 +196,208 @@
                    
                    </nav>
                </div>
-               <div class="content modules">
+               <div class="content component">
                    <div class="content-data">
 
-<h3>Modules</h3>
-<div class="container-fluid modules">
-    <div class="row">
-    </div>
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>StepperDemoComponent</li>
+</ol>
+
+
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
+        </li>
+        <li>
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab">Source</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane fade active in" id="infos"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/stepper-demo/stepper-demo.component.ts</code>
+</p>
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-stepper-demo</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>stepper-demo.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+    <section>
+        <h3 id="methods">Methods</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> nextStep</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>nextStep()</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> prevStep</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>prevStep()</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        <h3 id="inputs">Properties</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> activeStep</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>activeStep:     <code>number</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value: </i><code>0</code>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier"></span> maxStep</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-"></span><code>maxStep:     <code>2</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value: </i><code>2</code>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+    </section>
 </div>
+        <div class="tab-pane fade tab-source-code" id="source">
+            <pre><code class="hljs javascript">import { Component } from &#x27;@angular/core&#x27;
+import { StepperModule } from &#x27;primeng/stepper&#x27;
+import { ButtonModule } from &#x27;primeng/button&#x27;
+import { Step1Component } from &#x27;./step1/step1.component&#x27;
+import { Step2Component } from &#x27;./step2/step2.component&#x27;
+import { Step3Component } from &#x27;./step3/step3.component&#x27;
+
+@Component({
+  selector: &#x27;app-stepper-demo&#x27;,
+  standalone: true,
+  imports: [
+    StepperModule,
+    ButtonModule,
+    Step1Component,
+    Step2Component,
+    Step3Component,
+  ],
+  templateUrl: &#x27;./stepper-demo.component.html&#x27;,
+  styleUrl: &#x27;./stepper-demo.component.css&#x27;,
+})
+export class StepperDemoComponent {
+  activeStep &#x3D; 0
+  readonly maxStep &#x3D; 2
+
+  nextStep() {
+    if (this.activeStep &lt; this.maxStep) {
+      this.activeStep++
+    }
+  }
+
+  prevStep() {
+    if (this.activeStep &gt; 0) {
+      this.activeStep--
+    }
+  }
+}
+</code></pre>
+        </div>
+    </div>
 
 
 

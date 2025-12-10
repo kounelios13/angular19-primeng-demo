@@ -66,7 +66,7 @@
                                     <a href="components/AppComponent.html" >AppComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="components/Step1Component.html" >Step1Component</a>
+                                    <a href="components/Step1Component.html"  class="active" >Step1Component</a>
                                 </li>
                                 <li class="link">
                                     <a href="components/Step2Component.html" >Step2Component</a>
@@ -157,7 +157,7 @@
                                            <a href="components/AppComponent.html" >AppComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="components/Step1Component.html" >Step1Component</a>
+                                           <a href="components/Step1Component.html"  class="active" >Step1Component</a>
                                        </li>
                                        <li class="link">
                                            <a href="components/Step2Component.html" >Step2Component</a>
@@ -196,14 +196,101 @@
                    
                    </nav>
                </div>
-               <div class="content modules">
+               <div class="content component">
                    <div class="content-data">
 
-<h3>Modules</h3>
-<div class="container-fluid modules">
-    <div class="row">
-    </div>
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>Step1Component</li>
+</ol>
+
+
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
+        </li>
+        <li>
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab">Source</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane fade active in" id="infos"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/stepper-demo/step1/step1.component.ts</code>
+</p>
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-step1</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>step1.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
 </div>
+        <div class="tab-pane fade tab-source-code" id="source">
+            <pre><code class="hljs javascript">import { Component, OnInit, OnDestroy } from &#x27;@angular/core&#x27;
+import { CommonModule } from &#x27;@angular/common&#x27;
+import { InputTextModule } from &#x27;primeng/inputtext&#x27;
+import { FloatLabelModule } from &#x27;primeng/floatlabel&#x27;
+
+@Component({
+  selector: &#x27;app-step1&#x27;,
+  standalone: true,
+  imports: [CommonModule, InputTextModule, FloatLabelModule],
+  templateUrl: &#x27;./step1.component.html&#x27;,
+  styleUrl: &#x27;./step1.component.css&#x27;,
+})
+export class Step1Component implements OnInit, OnDestroy {
+  ngOnInit(): void {
+    const initTimestamp &#x3D; new Date().toISOString()
+    console.log(&#x60;[Step1Component] ngOnInit called at: ${initTimestamp}&#x60;)
+  }
+
+  ngOnDestroy(): void {
+    const destroyTimestamp &#x3D; new Date().toISOString()
+    console.log(&#x60;[Step1Component] ngOnDestroy called at: ${destroyTimestamp}&#x60;)
+  }
+}
+</code></pre>
+        </div>
+    </div>
 
 
 
