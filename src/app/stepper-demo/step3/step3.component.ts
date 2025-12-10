@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core'
-import { CommonModule } from '@angular/common'
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-step3',

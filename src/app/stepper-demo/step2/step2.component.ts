@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core'
-import { CommonModule } from '@angular/common'
-import { InputTextModule } from 'primeng/inputtext'
-import { FloatLabelModule } from 'primeng/floatlabel'
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { InputTextModule } from 'primeng/inputtext';
+import { FloatLabelModule } from 'primeng/floatlabel';
 
 @Component({
   selector: 'app-step2',

@@ -1,9 +1,9 @@
-import { Component } from '@angular/core'
-import { StepperModule } from 'primeng/stepper'
-import { ButtonModule } from 'primeng/button'
-import { Step1Component } from './step1/step1.component'
-import { Step2Component } from './step2/step2.component'
-import { Step3Component } from './step3/step3.component'
+import { Component } from '@angular/core';
+import { StepperModule } from 'primeng/stepper';
+import { ButtonModule } from 'primeng/button';
+import { Step1Component } from './step1/step1.component';
+import { Step2Component } from './step2/step2.component';
+import { Step3Component } from './step3/step3.component';
 
 @Component({
   selector: 'app-stepper-demo',
@@ -13,13 +13,18 @@ import { Step3Component } from './step3/step3.component'
   styleUrl: './stepper-demo.component.css',
 })
 export class StepperDemoComponent {
-  activeStep = 0
+  activeStep = 0;
+  readonly maxStep = 2;
 
   nextStep() {
-    this.activeStep++
+    if (this.activeStep < this.maxStep) {
+      this.activeStep++;
+    }
   }
 
   prevStep() {
-    this.activeStep--
+    if (this.activeStep > 0) {
+      this.activeStep--;
+    }
   }
 }
