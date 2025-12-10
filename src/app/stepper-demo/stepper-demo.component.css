@@ -1,0 +1,23 @@
+.stepper-container {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  color: #666;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  justify-content: flex-end;
+}
