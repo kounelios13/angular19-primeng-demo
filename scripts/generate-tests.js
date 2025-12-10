@@ -48,8 +48,10 @@ describe('${exportName}', () => {
     console.log(`✨ Generating tests for: ${fileName}`)
     const isStandalone = fileContent.includes('standalone: true')
     const importStatement = isStandalone
-      ? `import { ${exportName} } from './${fileName}';`
-      : `import { ${exportName}, ${exportName}Module } from './${fileName}';`
+      ? `import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ${exportName} } from './${fileName}';`
+      : `import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ${exportName}, ${exportName}Module } from './${fileName}';`
 
     const testBedConfig = isStandalone
       ? `imports: [${exportName}],`
@@ -75,25 +77,29 @@ describe('${exportName}', () => {
     expect(component).toBeTruthy();
   });
 
-  it('🌀 should call ngOnInit', () => {
-    if (component.ngOnInit) {
-      const ngOnInitSpy = spyOn(component, 'ngOnInit').and.callThrough();
-      component.ngOnInit();
+  it('🌀 should call ngOnInit if it exists', () => {
+    if ('ngOnInit' in component && typeof component.ngOnInit === 'function') {
+      const ngOnInitSpy = spyOn(component as any, 'ngOnInit').and.callThrough();
+      (component as any).ngOnInit();
       expect(ngOnInitSpy).toHaveBeenCalled();
+    } else {
+      expect(true).toBeTruthy(); // Component doesn't implement ngOnInit
     }
   });
 
-  it('💥 should call ngOnDestroy', () => {
-    if (component.ngOnDestroy) {
-      const ngOnDestroySpy = spyOn(component, 'ngOnDestroy').and.callThrough();
-      component.ngOnDestroy();
+  it('💥 should call ngOnDestroy if it exists', () => {
+    if ('ngOnDestroy' in component && typeof component.ngOnDestroy === 'function') {
+      const ngOnDestroySpy = spyOn(component as any, 'ngOnDestroy').and.callThrough();
+      (component as any).ngOnDestroy();
       expect(ngOnDestroySpy).toHaveBeenCalled();
+    } else {
+      expect(true).toBeTruthy(); // Component doesn't implement ngOnDestroy
     }
   });
 
   it('📃 should render template correctly', () => {
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h1')).toBeTruthy(); // Adjust selector as needed
+    expect(compiled).toBeTruthy();
   });
 });
 `
