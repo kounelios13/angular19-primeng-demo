@@ -15,6 +15,10 @@ h1 {
   font-style: italic;
 }
 
+.step-wrapper {
+  padding: 1rem 0;
+}
+
 .button-container {
   display: flex;
   gap: 1rem;

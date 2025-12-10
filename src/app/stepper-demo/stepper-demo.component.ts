@@ -12,4 +12,14 @@ import { Step3Component } from './step3/step3.component'
   templateUrl: './stepper-demo.component.html',
   styleUrl: './stepper-demo.component.css',
 })
-export class StepperDemoComponent {}
+export class StepperDemoComponent {
+  activeStep = 0
+
+  nextStep() {
+    this.activeStep++
+  }
+
+  prevStep() {
+    this.activeStep--
+  }
+}
