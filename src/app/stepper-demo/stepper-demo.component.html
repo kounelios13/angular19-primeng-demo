@@ -1,38 +1,143 @@
 <div class="stepper-container">
   <h1>PrimeNG Stepper Demo</h1>
-  <p class="description">Components remain alive when navigating between steps - Open browser console to see lifecycle logs</p>
-  
-  <p-stepper [(value)]="activeStep">
-    <p-step-list>
-      <p-step [value]="0">Personal Info</p-step>
-      <p-step [value]="1">Address Details</p-step>
-      <p-step [value]="2">Confirmation</p-step>
-    </p-step-list>
-    
-    <div class="step-content-wrapper">
-      <!-- All components are rendered and kept alive, visibility controlled by CSS -->
-      <div class="step-wrapper" [class.active]="activeStep === 0">
+
+  <!-- Original implementation (components remain alive) -->
+  <div class="demo-section">
+    <h2>Original Stepper - Components Remain Alive</h2>
+    <p class="description">
+      Components remain alive when navigating between steps - Open browser
+      console to see lifecycle logs
+    </p>
+
+    <p-stepper [(value)]="activeStep">
+      <p-step-list>
+        <p-step [value]="0">Personal Info</p-step>
+        <p-step [value]="1">Address Details</p-step>
+        <p-step [value]="2">Confirmation</p-step>
+      </p-step-list>
+
+      <div class="step-content-wrapper">
+        <!-- All components are rendered and kept alive, visibility controlled by CSS -->
+        <div class="step-wrapper" [class.active]="activeStep === 0">
+          <app-step1></app-step1>
+          <div class="button-container">
+            <p-button label="Next" (onClick)="nextStep()"></p-button>
+          </div>
+        </div>
+
+        <div class="step-wrapper" [class.active]="activeStep === 1">
+          <app-step2></app-step2>
+          <div class="button-container">
+            <p-button
+              label="Back"
+              severity="secondary"
+              (onClick)="prevStep()"
+            ></p-button>
+            <p-button label="Next" (onClick)="nextStep()"></p-button>
+          </div>
+        </div>
+
+        <div class="step-wrapper" [class.active]="activeStep === 2">
+          <app-step3></app-step3>
+          <div class="button-container">
+            <p-button
+              label="Back"
+              severity="secondary"
+              (onClick)="prevStep()"
+            ></p-button>
+            <p-button label="Finish" severity="success"></p-button>
+          </div>
+        </div>
+      </div>
+    </p-stepper>
+  </div>
+
+  <!-- Reusable Stepper with destroyInactiveSteps control -->
+  <div class="demo-section">
+    <h2>Reusable Stepper - Component Lifecycle Control</h2>
+    <div class="controls">
+      <label>
+        <input type="checkbox" [(ngModel)]="destroyInactiveSteps" />
+        Destroy inactive steps (components are destroyed when leaving step)
+      </label>
+    </div>
+    <p class="description">
+      {{
+        destroyInactiveSteps
+          ? 'Components are destroyed when you leave a step (ngOnDestroy called) - Check console'
+          : 'Components remain alive when navigating between steps - Check console'
+      }}
+    </p>
+
+    <app-reusable-stepper
+      [steps]="stepConfigs"
+      [destroyInactiveSteps]="destroyInactiveSteps"
+      [(activeStep)]="activeStepReusable"
+    >
+      <!-- Step content with conditional rendering based on destroyInactiveSteps -->
+      <div
+        class="step-wrapper"
+        [class.active]="activeStepReusable === 0"
+        [style.display]="
+          !destroyInactiveSteps
+            ? activeStepReusable === 0
+              ? 'block'
+              : 'none'
+            : 'block'
+        "
+        *ngIf="destroyInactiveSteps ? activeStepReusable === 0 : true"
+      >
         <app-step1></app-step1>
         <div class="button-container">
-          <p-button label="Next" (onClick)="nextStep()"></p-button>
+          <p-button label="Next" (onClick)="nextStepReusable()"></p-button>
         </div>
       </div>
-      
-      <div class="step-wrapper" [class.active]="activeStep === 1">
+
+      <div
+        class="step-wrapper"
+        [class.active]="activeStepReusable === 1"
+        [style.display]="
+          !destroyInactiveSteps
+            ? activeStepReusable === 1
+              ? 'block'
+              : 'none'
+            : 'block'
+        "
+        *ngIf="destroyInactiveSteps ? activeStepReusable === 1 : true"
+      >
         <app-step2></app-step2>
         <div class="button-container">
-          <p-button label="Back" severity="secondary" (onClick)="prevStep()"></p-button>
-          <p-button label="Next" (onClick)="nextStep()"></p-button>
+          <p-button
+            label="Back"
+            severity="secondary"
+            (onClick)="prevStepReusable()"
+          ></p-button>
+          <p-button label="Next" (onClick)="nextStepReusable()"></p-button>
         </div>
       </div>
-      
-      <div class="step-wrapper" [class.active]="activeStep === 2">
+
+      <div
+        class="step-wrapper"
+        [class.active]="activeStepReusable === 2"
+        [style.display]="
+          !destroyInactiveSteps
+            ? activeStepReusable === 2
+              ? 'block'
+              : 'none'
+            : 'block'
+        "
+        *ngIf="destroyInactiveSteps ? activeStepReusable === 2 : true"
+      >
         <app-step3></app-step3>
         <div class="button-container">
-          <p-button label="Back" severity="secondary" (onClick)="prevStep()"></p-button>
+          <p-button
+            label="Back"
+            severity="secondary"
+            (onClick)="prevStepReusable()"
+          ></p-button>
           <p-button label="Finish" severity="success"></p-button>
         </div>
       </div>
-    </div>
-  </p-stepper>
+    </app-reusable-stepper>
+  </div>
 </div>

@@ -1,0 +1,11 @@
+<p-stepper [(value)]="activeStep" (valueChange)="onStepChange($event)">
+  <p-step-list>
+    <p-step *ngFor="let step of steps" [value]="step.value">{{
+      step.label
+    }}</p-step>
+  </p-step-list>
+
+  <div class="step-content-wrapper">
+    <ng-content></ng-content>
+  </div>
+</p-stepper>
