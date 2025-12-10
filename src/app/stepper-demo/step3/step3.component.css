@@ -1,0 +1,31 @@
+.step-content {
+  padding: 1.5rem;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.confirmation-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  gap: 1rem;
+  text-align: center;
+}
+
+.confirmation-message h3 {
+  color: #22c55e;
+  margin: 0;
+}
+
+.confirmation-message p {
+  margin: 0;
+}

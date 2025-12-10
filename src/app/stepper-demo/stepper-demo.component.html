@@ -1,0 +1,38 @@
+<div class="stepper-container">
+  <h1>PrimeNG Stepper Demo</h1>
+  <p class="description">Components remain alive when navigating between steps - Open browser console to see lifecycle logs</p>
+  
+  <p-stepper [(value)]="activeStep">
+    <p-step-list>
+      <p-step [value]="0">Personal Info</p-step>
+      <p-step [value]="1">Address Details</p-step>
+      <p-step [value]="2">Confirmation</p-step>
+    </p-step-list>
+    
+    <div class="step-content-wrapper">
+      <!-- All components are rendered and kept alive, visibility controlled by CSS -->
+      <div class="step-wrapper" [class.active]="activeStep === 0">
+        <app-step1></app-step1>
+        <div class="button-container">
+          <p-button label="Next" (onClick)="nextStep()"></p-button>
+        </div>
+      </div>
+      
+      <div class="step-wrapper" [class.active]="activeStep === 1">
+        <app-step2></app-step2>
+        <div class="button-container">
+          <p-button label="Back" severity="secondary" (onClick)="prevStep()"></p-button>
+          <p-button label="Next" (onClick)="nextStep()"></p-button>
+        </div>
+      </div>
+      
+      <div class="step-wrapper" [class.active]="activeStep === 2">
+        <app-step3></app-step3>
+        <div class="button-container">
+          <p-button label="Back" severity="secondary" (onClick)="prevStep()"></p-button>
+          <p-button label="Finish" severity="success"></p-button>
+        </div>
+      </div>
+    </div>
+  </p-stepper>
+</div>
