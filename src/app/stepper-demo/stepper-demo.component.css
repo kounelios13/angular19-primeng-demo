@@ -15,8 +15,18 @@ h1 {
   font-style: italic;
 }
 
+.step-content-wrapper {
+  position: relative;
+  min-height: 400px;
+}
+
 .step-wrapper {
   padding: 1rem 0;
+  display: none;
+}
+
+.step-wrapper.active {
+  display: block;
 }
 
 .button-container {
