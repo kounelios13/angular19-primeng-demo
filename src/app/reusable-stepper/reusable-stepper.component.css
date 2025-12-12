@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+.step-content-wrapper {
+  position: relative;
+  min-height: 400px;
+}
+
+/* When destroyInactiveSteps is false, use CSS to control visibility */
+:host(.keep-alive) .step-wrapper {
+  display: none;
+}
+
+:host(.keep-alive) .step-wrapper.active {
+  display: block;
+}
