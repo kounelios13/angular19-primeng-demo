@@ -78,7 +78,7 @@
                                     <a href="../components/Step3Component.html" >Step3Component</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/StepperDemoComponent.html"  class="active" >StepperDemoComponent</a>
+                                    <a href="../components/StepperDemoComponent.html" >StepperDemoComponent</a>
                                 </li>
                         </ul>
                     </li>
@@ -99,7 +99,7 @@
                                 id="xs-interfaces-links"
                             >
                                 <li class="link">
-                                    <a href="../interfaces/StepConfig.html" >StepConfig</a>
+                                    <a href="../interfaces/StepConfig.html"  class="active" >StepConfig</a>
                                 </li>
                         </ul>
                     </li>
@@ -188,7 +188,7 @@
                                            <a href="../components/Step3Component.html" >Step3Component</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/StepperDemoComponent.html"  class="active" >StepperDemoComponent</a>
+                                           <a href="../components/StepperDemoComponent.html" >StepperDemoComponent</a>
                                        </li>
                                </ul>
                            </li>
@@ -209,7 +209,7 @@
                                        id="interfaces-links"
                    >
                                        <li class="link">
-                                           <a href="../interfaces/StepConfig.html" >StepConfig</a>
+                                           <a href="../interfaces/StepConfig.html"  class="active" >StepConfig</a>
                                        </li>
                                </ul>
                            </li>
@@ -234,349 +234,176 @@
                    
                    </nav>
                </div>
-               <div class="content component">
+               <div class="content interface">
                    <div class="content-data">
 
 
+
+
+
+
+
 <ol class="breadcrumb">
-  <li>Components</li>
-  <li>StepperDemoComponent</li>
+  <li>Interfaces</li>
+  <li>StepConfig</li>
 </ol>
 
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active">
+        <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
+    </li>
+    <li>
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab">Source</a>
+    </li>
+</ul>
 
-    <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
-        </li>
-        <li>
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab">Source</a>
-        </li>
-    </ul>
-
-    <div class="tab-content">
-        <div class="tab-pane fade active in" id="infos"><p class="comment">
-    <h3>File</h3>
-</p>
-<p class="comment">
-    <code>src/app/stepper-demo/stepper-demo.component.ts</code>
-</p>
-
-
-
-<section>
-    <h3>Metadata</h3>
-    <table class="table table-sm table-hover">
-        <tbody>
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="infos">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/reusable-stepper/reusable-stepper.component.ts</code>
+        </p>
 
 
 
 
 
+            <section>
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <b>label</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>label:     <code>string</code>
+</bcode>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string</code>
+
+                                        </td>
+                                    </tr>
 
 
 
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <b>value</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>value:     <code>number</code>
+</bcode>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>number</code>
+
+                                        </td>
+                                    </tr>
 
 
 
-
-            <tr>
-                <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-stepper-demo</code></td>
-            </tr>
-
-
-
-
-            <tr>
-                <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>stepper-demo.component.html</code></td>
-            </tr>
-
-
-        </tbody>
-    </table>
-</section>
-
-
-
-
-    <section>
-        <h3 id="methods">Methods</h3>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> nextStep</b>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-    <code>nextStep()</code>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-description">
-                                    <b>Returns: </b>    <code>void</code>
-    
-                                </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> prevStep</b>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-    <code>prevStep()</code>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-description">
-                                    <b>Returns: </b>    <code>void</code>
-    
-                                </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> nextStepReusable</b>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-    <code>nextStepReusable()</code>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-description">
-                                    <b>Returns: </b>    <code>void</code>
-    
-                                </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> prevStepReusable</b>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-    <code>prevStepReusable()</code>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-description">
-                                    <b>Returns: </b>    <code>void</code>
-    
-                                </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-    </section>
-
-    <section>
-        <h3 id="inputs">Properties</h3>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> activeStep</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>activeStep:     <code>number</code>
-    </bcode>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Default value: </i><code>0</code>
-                            </td>
-                        </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> activeStepReusable</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>activeStepReusable:     <code>number</code>
-    </bcode>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Default value: </i><code>0</code>
-                            </td>
-                        </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> destroyInactiveSteps</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>destroyInactiveSteps:     <code>boolean</code>
-    </bcode>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Default value: </i><code>false</code>
-                            </td>
-                        </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b><span class="modifier"></span> maxStep</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <span class="modifier-icon fa fa-"></span><code>maxStep:     <code>2</code>
-    </bcode>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Default value: </i><code>2</code>
-                            </td>
-                        </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> stepConfigs</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>stepConfigs:     <code>StepConfig[]</code>
-    </bcode>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-    </section>
-</div>
-        <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { Component } from &#x27;@angular/core&#x27;
-import { StepperModule } from &#x27;primeng/stepper&#x27;
-import { ButtonModule } from &#x27;primeng/button&#x27;
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+    <div class="tab-pane fade tab-source-code" id="source">
+        <pre><code class="hljs javascript">import { Component, Input, Output, EventEmitter } from &#x27;@angular/core&#x27;
 import { CommonModule } from &#x27;@angular/common&#x27;
-import { FormsModule } from &#x27;@angular/forms&#x27;
-import { Step1Component } from &#x27;./step1/step1.component&#x27;
-import { Step2Component } from &#x27;./step2/step2.component&#x27;
-import { Step3Component } from &#x27;./step3/step3.component&#x27;
-import {
-  ReusableStepperComponent,
-  StepConfig,
-} from &#x27;../reusable-stepper/reusable-stepper.component&#x27;
+import { StepperModule } from &#x27;primeng/stepper&#x27;
 
+export interface StepConfig {
+  label: string
+  value: number
+}
+
+/**
+ * A reusable stepper component that provides control over content lifecycle.
+ *
+ * This component wraps PrimeNG&#x27;s Stepper and adds the ability to control whether
+ * step content is destroyed or kept alive when navigating between steps.
+ *
+ * @example
+ * &#x60;&#x60;&#x60;html
+ * &lt;app-reusable-stepper
+ *   [steps]&#x3D;&quot;stepConfigs&quot;
+ *   [destroyInactiveSteps]&#x3D;&quot;true&quot;
+ *   [(activeStep)]&#x3D;&quot;currentStep&quot;&gt;
+ *
+ *   &lt;ng-container *stepContent&#x3D;&quot;0&quot;&gt;
+ *     &lt;app-step1&gt;&lt;/app-step1&gt;
+ *   &lt;/ng-container&gt;
+ *
+ *   &lt;ng-container *stepContent&#x3D;&quot;1&quot;&gt;
+ *     &lt;app-step2&gt;&lt;/app-step2&gt;
+ *   &lt;/ng-container&gt;
+ * &lt;/app-reusable-stepper&gt;
+ * &#x60;&#x60;&#x60;
+ */
 @Component({
-  selector: &#x27;app-stepper-demo&#x27;,
+  selector: &#x27;app-reusable-stepper&#x27;,
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    StepperModule,
-    ButtonModule,
-    Step1Component,
-    Step2Component,
-    Step3Component,
-    ReusableStepperComponent,
-  ],
-  templateUrl: &#x27;./stepper-demo.component.html&#x27;,
-  styleUrl: &#x27;./stepper-demo.component.css&#x27;,
+  imports: [CommonModule, StepperModule],
+  templateUrl: &#x27;./reusable-stepper.component.html&#x27;,
+  styleUrl: &#x27;./reusable-stepper.component.css&#x27;,
 })
-export class StepperDemoComponent {
-  activeStep &#x3D; 0
-  readonly maxStep &#x3D; 2
+export class ReusableStepperComponent {
+  /**
+   * Configuration for the stepper steps (labels and values)
+   */
+  @Input() steps: StepConfig[] &#x3D; []
 
-  // Configuration for reusable stepper
-  stepConfigs: StepConfig[] &#x3D; [
-    { label: &#x27;Personal Info&#x27;, value: 0 },
-    { label: &#x27;Address Details&#x27;, value: 1 },
-    { label: &#x27;Confirmation&#x27;, value: 2 },
-  ]
+  /**
+   * Controls whether inactive step components are destroyed or kept alive.
+   * - When true: Components are destroyed when leaving the step (ngOnDestroy is called)
+   * - When false: Components remain alive and are only hidden with CSS (default behavior)
+   * @default false
+   */
+  @Input() destroyInactiveSteps &#x3D; false
 
-  // Control flags for different stepper modes
-  destroyInactiveSteps &#x3D; false
-  activeStepReusable &#x3D; 0
+  /**
+   * The currently active step index
+   * @default 0
+   */
+  @Input() activeStep &#x3D; 0
 
-  nextStep() {
-    if (this.activeStep &lt; this.maxStep) {
-      this.activeStep++
-    }
-  }
+  /**
+   * Event emitted when the active step changes
+   */
+  @Output() activeStepChange &#x3D; new EventEmitter&lt;number&gt;()
 
-  prevStep() {
-    if (this.activeStep &gt; 0) {
-      this.activeStep--
-    }
-  }
-
-  nextStepReusable() {
-    if (this.activeStepReusable &lt; this.maxStep) {
-      this.activeStepReusable++
-    }
-  }
-
-  prevStepReusable() {
-    if (this.activeStepReusable &gt; 0) {
-      this.activeStepReusable--
+  /**
+   * Handles step change from the stepper
+   */
+  onStepChange(newStep: number | undefined): void {
+    if (newStep !&#x3D;&#x3D; undefined) {
+      this.activeStep &#x3D; newStep
+      this.activeStepChange.emit(newStep)
     }
   }
 }
 </code></pre>
-        </div>
     </div>
-
-
-
-
-
-
+</div>
 
 
 

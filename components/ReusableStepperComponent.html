@@ -66,7 +66,7 @@
                                     <a href="../components/AppComponent.html" >AppComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/ReusableStepperComponent.html" >ReusableStepperComponent</a>
+                                    <a href="../components/ReusableStepperComponent.html"  class="active" >ReusableStepperComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/Step1Component.html" >Step1Component</a>
@@ -78,7 +78,7 @@
                                     <a href="../components/Step3Component.html" >Step3Component</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/StepperDemoComponent.html"  class="active" >StepperDemoComponent</a>
+                                    <a href="../components/StepperDemoComponent.html" >StepperDemoComponent</a>
                                 </li>
                         </ul>
                     </li>
@@ -176,7 +176,7 @@
                                            <a href="../components/AppComponent.html" >AppComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/ReusableStepperComponent.html" >ReusableStepperComponent</a>
+                                           <a href="../components/ReusableStepperComponent.html"  class="active" >ReusableStepperComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/Step1Component.html" >Step1Component</a>
@@ -188,7 +188,7 @@
                                            <a href="../components/Step3Component.html" >Step3Component</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/StepperDemoComponent.html"  class="active" >StepperDemoComponent</a>
+                                           <a href="../components/StepperDemoComponent.html" >StepperDemoComponent</a>
                                        </li>
                                </ul>
                            </li>
@@ -240,13 +240,16 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>StepperDemoComponent</li>
+  <li>ReusableStepperComponent</li>
 </ol>
 
 
     <ul class="nav nav-tabs" role="tablist">
         <li class="active">
             <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
+        </li>
+        <li>
+            <a href="#readme" role="tab" id="readme-tab" data-toggle="tab">README</a>
         </li>
         <li>
             <a href="#source" role="tab" id="source-tab" data-toggle="tab">Source</a>
@@ -258,10 +261,40 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/stepper-demo/stepper-demo.component.ts</code>
+    <code>src/app/reusable-stepper/reusable-stepper.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>A reusable stepper component that provides control over content lifecycle.</p>
+<p>This component wraps PrimeNG&#39;s Stepper and adds the ability to control whether<br>step content is destroyed or kept alive when navigating between steps.</p>
 
+    </p>
+
+    <p class="comment">
+        <h3>Example</h3>
+    </p>
+    <div class="io-description">
+                <div>
+                    <pre><code class="hljs html">```html
+&lt;app-reusable-stepper
+[steps]=&quot;stepConfigs&quot;
+[destroyInactiveSteps]=&quot;true&quot;
+[(activeStep)]=&quot;currentStep&quot;&gt;
+
+&lt;ng-container *stepContent=&quot;0&quot;&gt;
+&lt;app-step1&gt;&lt;/app-step1&gt;
+&lt;/ng-container&gt;
+
+&lt;ng-container *stepContent=&quot;1&quot;&gt;
+&lt;app-step2&gt;&lt;/app-step2&gt;
+&lt;/ng-container&gt;
+&lt;/app-reusable-stepper&gt;
+```</code></pre>
+                </div>
+    </div>
 
 <section>
     <h3>Metadata</h3>
@@ -281,7 +314,7 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-stepper-demo</code></td>
+                <td class="col-md-9"><code>app-reusable-stepper</code></td>
             </tr>
 
 
@@ -289,7 +322,7 @@
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>stepper-demo.component.html</code></td>
+                <td class="col-md-9"><code>reusable-stepper.component.html</code></td>
             </tr>
 
 
@@ -297,7 +330,81 @@
     </table>
 </section>
 
+    <section>
+        <h3 id="inputs">Inputs</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>activeStep</code>
+                        </td>
+                        <td class="col-md-10">
+                            <div><p>The currently active step index</p>
+</div>
+                            <p>
+                              <em>Default value: </em><code>0</code>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>destroyInactiveSteps</code>
+                        </td>
+                        <td class="col-md-10">
+                            <div><p>Controls whether inactive step components are destroyed or kept alive.</p>
+<ul>
+<li>When true: Components are destroyed when leaving the step (ngOnDestroy is called)</li>
+<li>When false: Components remain alive and are only hidden with CSS (default behavior)</li>
+</ul>
+</div>
+                            <p>
+                              <em>Default value: </em><code>false</code>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>steps</code>
+                        </td>
+                        <td class="col-md-10">
+                            <div><p>Configuration for the stepper steps (labels and values)</p>
+</div>
+                              <p>
+                                <em>Type:</em>    <code>StepConfig[]</code>
 
+                              </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        <h3 id="outputs">Outputs</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>activeStepChange</code>
+                        </td>
+                        <td class="col-md-10">
+                            <div><p>Event emitted when the active step changes</p>
+</div>
+                            <em><code>$event</code> type:</em>    <code><a href="https://angular.io/docs/ts/latest/api/core/index/EventEmitter-class.html" target="_blank" >EventEmitter</a></code>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
 
 
     <section>
@@ -306,90 +413,20 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <b> nextStep</b>
+                            <b> onStepChange</b>
                         </td>
                     </tr>
     
                     <tr>
                         <td class="col-md-4">
-    <code>nextStep()</code>
+    <code>onStepChange(newStep: number)</code>
                         </td>
                     </tr>
     
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description">
-                                    <b>Returns: </b>    <code>void</code>
-    
-                                </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> prevStep</b>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-    <code>prevStep()</code>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-description">
-                                    <b>Returns: </b>    <code>void</code>
-    
-                                </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> nextStepReusable</b>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-    <code>nextStepReusable()</code>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-description">
-                                    <b>Returns: </b>    <code>void</code>
-    
-                                </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> prevStepReusable</b>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-    <code>prevStepReusable()</code>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
+                                <div class="io-description"><p>Handles step change from the stepper</p>
+    </div>
                                 <div class="io-description">
                                     <b>Returns: </b>    <code>void</code>
     
@@ -400,171 +437,171 @@
             </table>
     </section>
 
-    <section>
-        <h3 id="inputs">Properties</h3>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> activeStep</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>activeStep:     <code>number</code>
-    </bcode>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Default value: </i><code>0</code>
-                            </td>
-                        </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> activeStepReusable</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>activeStepReusable:     <code>number</code>
-    </bcode>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Default value: </i><code>0</code>
-                            </td>
-                        </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> destroyInactiveSteps</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>destroyInactiveSteps:     <code>boolean</code>
-    </bcode>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Default value: </i><code>false</code>
-                            </td>
-                        </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b><span class="modifier"></span> maxStep</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <span class="modifier-icon fa fa-"></span><code>maxStep:     <code>2</code>
-    </bcode>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Default value: </i><code>2</code>
-                            </td>
-                        </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> stepConfigs</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>stepConfigs:     <code>StepConfig[]</code>
-    </bcode>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-    </section>
 </div>
+        <div class="tab-pane fade" id="readme">
+            <p><h1 id="reusable-stepper-component">Reusable Stepper Component</h1>
+<p>A reusable Angular stepper component built with PrimeNG that provides control over component lifecycle management.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Configurable Content Lifecycle</strong>: Control whether step components are destroyed or kept alive when navigating between steps</li>
+<li><strong>PrimeNG Integration</strong>: Built on top of PrimeNG v19 Stepper component</li>
+<li><strong>Type-Safe Configuration</strong>: TypeScript interfaces for step configuration</li>
+<li><strong>Two-Way Binding</strong>: Supports <code>[(activeStep)]</code> for reactive state management</li>
+<li><strong>Event Emission</strong>: Emits <code>activeStepChange</code> events when navigation occurs</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="basic-example">Basic Example</h3>
+<pre><code class="hljs typescript"><span class="hljs-keyword">import</span> { ReusableStepperComponent, StepConfig } <span class="hljs-keyword">from</span> <span class="hljs-string">'./reusable-stepper/reusable-stepper.component'</span><br><br><span class="hljs-meta">@Component</span>({<br>  <span class="hljs-comment">// ...</span><br>  imports: [ReusableStepperComponent],<br>})<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MyComponent {<br>  stepConfigs: StepConfig[] = [<br>    { label: <span class="hljs-string">'Step 1'</span>, value: <span class="hljs-number">0</span> },<br>    { label: <span class="hljs-string">'Step 2'</span>, value: <span class="hljs-number">1</span> },<br>    { label: <span class="hljs-string">'Step 3'</span>, value: <span class="hljs-number">2</span> },<br>  ]<br><br>  activeStep = <span class="hljs-number">0</span><br>  destroyInactiveSteps = <span class="hljs-literal">false</span><br>}</code></pre><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">app-reusable-stepper</span> [<span class="hljs-attr">steps</span>]=<span class="hljs-string">"stepConfigs"</span> [<span class="hljs-attr">destroyInactiveSteps</span>]=<span class="hljs-string">"destroyInactiveSteps"</span> [(<span class="hljs-attr">activeStep</span>)]=<span class="hljs-string">"activeStep"</span>&gt;</span><br>  <span class="hljs-comment">&lt;!-- Step content with conditional rendering --&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">"destroyInactiveSteps ? activeStep === 0 : true"</span> [<span class="hljs-attr">style.display</span>]=<span class="hljs-string">"!destroyInactiveSteps ? (activeStep === 0 ? 'block' : 'none') : 'block'"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">my-step1-component</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-step1-component</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> *<span class="hljs-attr">ngIf</span>=<span class="hljs-string">"destroyInactiveSteps ? activeStep === 1 : true"</span> [<span class="hljs-attr">style.display</span>]=<span class="hljs-string">"!destroyInactiveSteps ? (activeStep === 1 ? 'block' : 'none') : 'block'"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">my-step2-component</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-step2-component</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">app-reusable-stepper</span>&gt;</span></code></pre><h2 id="api">API</h2>
+<h3 id="inputs">Inputs</h3>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>steps</code></td>
+<td><code>StepConfig[]</code></td>
+<td><code>[]</code></td>
+<td>Array of step configurations with labels and values</td>
+</tr>
+<tr>
+<td><code>destroyInactiveSteps</code></td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>When <code>true</code>, components are destroyed when leaving a step. When <code>false</code>, components remain in DOM but hidden with CSS</td>
+</tr>
+<tr>
+<td><code>activeStep</code></td>
+<td><code>number</code></td>
+<td><code>0</code></td>
+<td>The currently active step index (supports two-way binding)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="outputs">Outputs</h3>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Event</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>activeStepChange</code></td>
+<td><code>EventEmitter&lt;number&gt;</code></td>
+<td>Emitted when the active step changes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="types">Types</h3>
+<pre><code class="hljs typescript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> StepConfig {<br>  label: <span class="hljs-built_in">string</span> <span class="hljs-comment">// Display label for the step</span><br>  value: <span class="hljs-built_in">number</span> <span class="hljs-comment">// Step index/value</span><br>}</code></pre><h2 id="behavior-modes">Behavior Modes</h2>
+<h3 id="keep-alive-mode-default-">Keep-Alive Mode (default)</h3>
+<p>When <code>destroyInactiveSteps = false</code>:</p>
+<ul>
+<li>All step components are rendered and kept in memory</li>
+<li>Navigation between steps only changes CSS visibility</li>
+<li>Component state is preserved across navigation</li>
+<li>Lifecycle hooks (<code>ngOnInit</code>/<code>ngOnDestroy</code>) are only called once</li>
+<li>Better for: Forms with user input, complex state management</li>
+</ul>
+<h3 id="destroy-mode">Destroy Mode</h3>
+<p>When <code>destroyInactiveSteps = true</code>:</p>
+<ul>
+<li>Only the active step component is rendered</li>
+<li>Navigation destroys the previous component and creates the new one</li>
+<li>Component state is lost when navigating away</li>
+<li>Lifecycle hooks are called on every navigation</li>
+<li>Better for: Memory-intensive components, fresh state on each visit</li>
+</ul>
+<h2 id="demo">Demo</h2>
+<p>See the <code>stepper-demo</code> component for a complete working example that demonstrates both modes side-by-side.</p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Angular 19+</li>
+<li>PrimeNG 19+</li>
+<li>@primeng/themes package</li>
+</ul>
+</p>
+        </div>
         <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { Component } from &#x27;@angular/core&#x27;
-import { StepperModule } from &#x27;primeng/stepper&#x27;
-import { ButtonModule } from &#x27;primeng/button&#x27;
+            <pre><code class="hljs javascript">import { Component, Input, Output, EventEmitter } from &#x27;@angular/core&#x27;
 import { CommonModule } from &#x27;@angular/common&#x27;
-import { FormsModule } from &#x27;@angular/forms&#x27;
-import { Step1Component } from &#x27;./step1/step1.component&#x27;
-import { Step2Component } from &#x27;./step2/step2.component&#x27;
-import { Step3Component } from &#x27;./step3/step3.component&#x27;
-import {
-  ReusableStepperComponent,
-  StepConfig,
-} from &#x27;../reusable-stepper/reusable-stepper.component&#x27;
+import { StepperModule } from &#x27;primeng/stepper&#x27;
 
+export interface StepConfig {
+  label: string
+  value: number
+}
+
+/**
+ * A reusable stepper component that provides control over content lifecycle.
+ *
+ * This component wraps PrimeNG&#x27;s Stepper and adds the ability to control whether
+ * step content is destroyed or kept alive when navigating between steps.
+ *
+ * @example
+ * &#x60;&#x60;&#x60;html
+ * &lt;app-reusable-stepper
+ *   [steps]&#x3D;&quot;stepConfigs&quot;
+ *   [destroyInactiveSteps]&#x3D;&quot;true&quot;
+ *   [(activeStep)]&#x3D;&quot;currentStep&quot;&gt;
+ *
+ *   &lt;ng-container *stepContent&#x3D;&quot;0&quot;&gt;
+ *     &lt;app-step1&gt;&lt;/app-step1&gt;
+ *   &lt;/ng-container&gt;
+ *
+ *   &lt;ng-container *stepContent&#x3D;&quot;1&quot;&gt;
+ *     &lt;app-step2&gt;&lt;/app-step2&gt;
+ *   &lt;/ng-container&gt;
+ * &lt;/app-reusable-stepper&gt;
+ * &#x60;&#x60;&#x60;
+ */
 @Component({
-  selector: &#x27;app-stepper-demo&#x27;,
+  selector: &#x27;app-reusable-stepper&#x27;,
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    StepperModule,
-    ButtonModule,
-    Step1Component,
-    Step2Component,
-    Step3Component,
-    ReusableStepperComponent,
-  ],
-  templateUrl: &#x27;./stepper-demo.component.html&#x27;,
-  styleUrl: &#x27;./stepper-demo.component.css&#x27;,
+  imports: [CommonModule, StepperModule],
+  templateUrl: &#x27;./reusable-stepper.component.html&#x27;,
+  styleUrl: &#x27;./reusable-stepper.component.css&#x27;,
 })
-export class StepperDemoComponent {
-  activeStep &#x3D; 0
-  readonly maxStep &#x3D; 2
+export class ReusableStepperComponent {
+  /**
+   * Configuration for the stepper steps (labels and values)
+   */
+  @Input() steps: StepConfig[] &#x3D; []
 
-  // Configuration for reusable stepper
-  stepConfigs: StepConfig[] &#x3D; [
-    { label: &#x27;Personal Info&#x27;, value: 0 },
-    { label: &#x27;Address Details&#x27;, value: 1 },
-    { label: &#x27;Confirmation&#x27;, value: 2 },
-  ]
+  /**
+   * Controls whether inactive step components are destroyed or kept alive.
+   * - When true: Components are destroyed when leaving the step (ngOnDestroy is called)
+   * - When false: Components remain alive and are only hidden with CSS (default behavior)
+   * @default false
+   */
+  @Input() destroyInactiveSteps &#x3D; false
 
-  // Control flags for different stepper modes
-  destroyInactiveSteps &#x3D; false
-  activeStepReusable &#x3D; 0
+  /**
+   * The currently active step index
+   * @default 0
+   */
+  @Input() activeStep &#x3D; 0
 
-  nextStep() {
-    if (this.activeStep &lt; this.maxStep) {
-      this.activeStep++
-    }
-  }
+  /**
+   * Event emitted when the active step changes
+   */
+  @Output() activeStepChange &#x3D; new EventEmitter&lt;number&gt;()
 
-  prevStep() {
-    if (this.activeStep &gt; 0) {
-      this.activeStep--
-    }
-  }
-
-  nextStepReusable() {
-    if (this.activeStepReusable &lt; this.maxStep) {
-      this.activeStepReusable++
-    }
-  }
-
-  prevStepReusable() {
-    if (this.activeStepReusable &gt; 0) {
-      this.activeStepReusable--
+  /**
+   * Handles step change from the stepper
+   */
+  onStepChange(newStep: number | undefined): void {
+    if (newStep !&#x3D;&#x3D; undefined) {
+      this.activeStep &#x3D; newStep
+      this.activeStepChange.emit(newStep)
     }
   }
 }
